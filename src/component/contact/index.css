@@ -1,13 +1,20 @@
 .contact__title {
     font-size: 32px;
     font-weight: bold;
+    padding-bottom: 30px;
 
 }
 .contact__block {
-  display: flex;
-  gap: 20px;
-  padding: 28px;
+row-gap: 25px;
+  
 }
 .contact__value {
     font-size: 16px;
+}
+.photoblock {
+  display: grid;
+  grid-template-columns: 10% 80%;
+}
+.contact__value1 {
+  padding-top: 25px;
 }
