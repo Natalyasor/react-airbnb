@@ -1,0 +1,7 @@
+.amenities {
+    padding: 20px;
+}
+.amenities__content {
+    display: flex;
+    flex-direction: column;
+}

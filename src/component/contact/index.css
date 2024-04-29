@@ -1,0 +1,13 @@
+.contact__title {
+    font-size: 32px;
+    font-weight: bold;
+
+}
+.contact__block {
+  display: flex;
+  gap: 20px;
+  padding: 28px;
+}
+.contact__value {
+    font-size: 16px;
+}

@@ -1,3 +1,29 @@
+
+import Page from "./component/page";
+
+import Header from "./component/header";
+
+import Title from "./component/title";
+
+import Photo from "./component/photo";
+
+import Price from "./component/price";
+
+import Box from "./component/box";
+
+import RoomList from "./component/room-list";
+
+import Description from "./component/description";
+
+import Property from "./component/property";
+
+import Amenities from "./component/amenities";
+import Contact from "./component/contact";
+import Amenitiesadd from "./component/amenitiesadd";
+
+import Guest from "./component/guest";
+import Attractions from "./component/attractions";
+
 function App() {
   const data = {
     listing_name: "Іст-Сайд Біл",
@@ -144,7 +170,64 @@ function App() {
     ],
   };
 
-  return <div>Hello World</div>;
+  return (
+    <Page>
+    <Header />
+    <Title
+    title={data.listing_name}
+    rating={data.reviews_summary.average_rating}
+    review={data.reviews_summary.total_reviews}
+    city={data.location.city}
+    country={data.location.country}
+    superhost={data.superhost}
+    />
+    <Photo src={data.image} name={data.listing_name}/>
+    <Price 
+    price={data.price.original_price}
+    discount={data.price.discounted_price}
+    currency={data.price.currency}
+    cleaning={data.price.cleaning_fee}
+    service={data.price.service_fee}
+    checkin={data.availability.checkin_date}
+    checkout={data.availability.checkout_date}
+    />
+    <RoomList list={data.roomTypes} />
+    <Description title = "Опис" children={data.description} />
+    <Property guests={data.property_details.guests}
+    bedrooms={data.property_details.bedrooms}
+    beds={data.property_details.beds}
+    baths={data.property_details.baths}
+    />
+    <Description title = "Про сусідів" children={data.neighborhood_info}/>
+    <Amenities hasPool={data.amenities.hasPool}
+    hasGym={data.amenities.hasGym}
+    hasFreeBreakfast={data.amenities.hasFreeBreakfast}
+    hasFreeWiFi={data.amenities.hasFreeWiFi}
+    hasParking={data.amenities.hasParking}
+    hasPetsAllowed={data.amenities.hasPetsAllowed}
+    hasAirportShuttle={data.amenities.hasAirportShuttle}
+    hasConciergeService={data.amenities.hasConciergeService}
+    hasRoomService={data.amenities.hasRoomService}
+    hasChildFriendly={data.amenities.hasChildFriendly}
+     />
+     <Contact phone={data.contact_info.phone}
+     photoKerthy={data.contact_info.image}
+     response_time={data.contact_info.response_time}
+     response_rate={data.contact_info.response_rate}
+     info={data.contact_info.info}
+      />
+      <Amenitiesadd house_rules={data.additional_properties.house_rules}
+      cancellation_policy={data.additional_properties.cancellation_policy}
+      local_transportation={data.additional_properties.local_transportation}
+      host_languages={data.additional_properties.host_languages}
+      special_offers={data.additional_properties.special_offers}
+      
+       />
+      <Guest list={data.guestReviews} />
+      <Attractions list={data.nearbyAttractions} />
+      </Page>
+  );
+
 }
 
 export default App;
